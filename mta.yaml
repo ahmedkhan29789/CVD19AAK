@@ -1,0 +1,35 @@
+ID: CVD19AAK
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: cvd18aak
+    type: nodejs
+    path: cvd18aak
+    provides:
+      - name: cvd18aak_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: apiCovid19DataUAA
+      - name: cvd18aak_api
+      - name: hdi_db_cvd19
+  - name: db_cvd19
+    type: hdb
+    path: db_cvd19
+    requires:
+      - name: hdi_db_cvd19
+      - name: cvd18aak
+resources:
+  - name: apiCovid19DataUAA
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: apiCovid19DataUAA
+    properties:
+      EXTERNAL_HTTP_SERVICE: '${service-name}'
+  - name: hdi_db_cvd19
+    parameters:
+      config:
+        schema: db_cvd19
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container

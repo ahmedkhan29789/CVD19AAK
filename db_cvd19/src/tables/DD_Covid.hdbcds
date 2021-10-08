@@ -1,0 +1,34 @@
+namespace CVD19AAK.db_cvd19.tables;
+
+context DD_Covid {
+
+context table {
+    Entity Global_Data {
+					 "NewConfirmed": Integer; 
+                     "TotalConfirmed": Integer;
+                key  "Date": LocalDate;
+                     "NewDeaths": Integer; 
+                     "TotalDeaths": Integer;
+                     "NewRecovered": Integer; 
+                     "TotalRecovered": Integer;
+                     "DateTime": UTCTimestamp;  
+                        };
+   
+    Entity Countries_Data {
+					    "Country":  String(64); 
+                key     "CountryCode":  String(4);
+                key     "Date": LocalDate;
+                        "Slug":  String(64);
+                         "NewConfirmed": Integer;
+                         "TotalConfirmed": Integer;
+                         "NewDeaths": Integer;
+                         "TotalDeaths": Integer;
+                         "NewRecovered": Integer;
+                         "TotalRecovered": Integer;
+                        "DateTime": String(64);
+                        };          
+                        
+                      
+                        
+};
+};

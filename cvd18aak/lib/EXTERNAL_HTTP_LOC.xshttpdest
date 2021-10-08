@@ -1,0 +1,7 @@
+host = "api.covid19api.com";
+port = 443;
+description = "API for covid data";
+authType = none;
+useProxy = false;
+timeout = 0;
+useSSL = true;
